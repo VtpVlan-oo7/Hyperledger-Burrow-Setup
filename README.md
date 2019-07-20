@@ -38,3 +38,22 @@ Step 3 – Verify Installation
 
 $ go version
 go version go1.12.6 linux/amd64
+
+
+### Hyperledger-Burrow Installation 
+
+Install go version 1.11 or above and have $GOPATH set
+
+$ go get github.com/hyperledger/burrow
+$ cd $GOPATH/src/github.com/hyperledger/burrow
+
+# We need to force enable module support to build from within GOPATH (our protobuf build depends on path, otherwise any checkout location should work)
+
+$ export GO111MODULE=on
+$ make build
+
+==>>This will build the burrow binary and put it in the bin/ directory. It can be executed from there or put wherever is convenient.
+==>>You can also install burrow into $BIN_PATH/bin with make install, where $BIN_PATH defaults to $HOME/go/bin if not set in environment.
+
+
+
